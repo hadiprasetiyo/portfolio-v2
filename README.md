@@ -1,104 +1,87 @@
 # Hadi Prasetiyo — Personal Portfolio
 
-Personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion, featuring a secure contact form backend built with Express and Resend.
+A modern personal portfolio website built to showcase my projects, technical skills, professional experience, certifications, and contact information. Designed with a responsive interface, smooth animations, and a secure contact system to provide a polished user experience.
+
+---
+
+## ✨ Overview
+
+This portfolio serves as a central place to present my background as a software developer, highlight selected projects, and provide an easy way for recruiters, clients, and collaborators to get in touch.
+
+---
 
 ## 🚀 Features
 
-- **Responsive & Modern Design**: Optimized for mobile, tablet, and desktop screens with smooth animations (Framer Motion).
-- **Interactive Experience Timeline**: Showcases career journey and education.
-- **Certificates Viewer**: Centered card layout with an image preview lightbox.
-- **Secure Contact Form**: Input validation, honeypot spam protection, rate-limiting, and Resend email integration.
-- **Production Ready**: Completely pre-configured for seamless single-repository deployment on Vercel.
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React (Vite), Tailwind CSS, Framer Motion, React Icons
-- **Backend (API)**: Express.js, Resend (Email API), CORS, Express Rate Limit, Dotenv
-- **Deployment**: Vercel (support for serverless functions)
+- Responsive design for desktop, tablet, and mobile devices
+- Smooth animations powered by Framer Motion
+- Interactive experience timeline
+- Project showcase with detailed information
+- Certificates gallery with image preview
+- Skills and technology overview
+- Secure contact form with spam protection
+- Email delivery powered by Resend
 
 ---
 
-## 💻 Local Development
+## 🛠 Tech Stack
 
-### 1. Prerequisities
+### Frontend
 
-Make sure you have Node.js installed.
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- React Icons
 
-### 2. Installation
+### Backend
 
-Clone this repository and install dependencies:
-
-```bash
-npm install
-```
-
-### 3. Environment Setup
-
-Copy `.env.example` to `.env` at the root of the project:
-
-```bash
-cp .env.example .env
-```
-
-Open `.env` and configure your Resend credentials:
-
-- `RESEND_API_KEY`: Get your free API key from [Resend](https://resend.com).
-- `CONTACT_TO_EMAIL`: The target email where you want to receive contact form submissions.
-- `CONTACT_FROM_EMAIL`: (Optional) Leave empty to use `onboarding@resend.dev` in development.
-
-> ⚠️ **Note**: When using `onboarding@resend.dev`, emails can ONLY be sent to the email address that registered the Resend account. For production, verify a custom domain in Resend and set `CONTACT_FROM_EMAIL` to your custom domain address (e.g. `noreply@yourdomain.com`).
-
-### 4. Running the Project
-
-Start the Express API server:
-```bash
-npm run server
-```
-
-In another terminal, start the Vite development server:
-```bash
-npm run dev
-```
-
-Open `http://localhost:3000` to view the website. Requests to `/api/*` will automatically be proxied to the Express backend.
+- Express.js
+- Resend API
+- Express Rate Limit
+- CORS
+- Dotenv
 
 ---
 
-## 📦 Production Build
+## 📁 Project Structure
 
-Build the static frontend assets:
+```text
+src/
+├── animations/
+├── components/
+├── constants/
+├── sections/
+├── App.jsx
+└── main.jsx
 
-```bash
-npm run build
-```
+public/
+├── images/
+└── icons/
 
-The compiled assets will be placed in the `dist/` directory.
-
-To test the production build locally with the Express server serving the static files:
-
-```bash
-npm run start
+api/
+└── contact.js
 ```
 
 ---
 
-## ☁️ Vercel Deployment
+## 📸 Preview
 
-This project is configured to deploy the Vite frontend and Express backend together under a single domain on Vercel using `vercel.json`.
+Portfolio preview.
 
-### Steps to Deploy:
+> Replace this section with screenshots of the homepage and other sections.
 
-1. Import this repository into Vercel.
-2. Vercel will automatically detect the configuration from `vercel.json`.
-3. Add the following **Environment Variables** in your Vercel Project Settings:
-   - `RESEND_API_KEY` (Required)
-   - `CONTACT_TO_EMAIL` (Required)
-   - `CONTACT_FROM_EMAIL` (Required, must be verified domain sender in production)
-   - `NODE_ENV` = `production`
-4. Click **Deploy**. Vercel will build the frontend assets, host them statically, and map `/api/*` requests to the serverless function.
+---
+
+## 👨‍💻 Author
+
+**Hadi Prasetiyo**
+
+- GitHub: https://github.com/hadiprasetiyo
+- LinkedIn: https://www.linkedin.com/in/hadiprasetiyo
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
+See the [LICENSE](LICENSE) file for more information.
