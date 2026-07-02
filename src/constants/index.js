@@ -7,10 +7,18 @@ export const personalInfo = {
   role: 'Full-Stack Web Developer',
   tagline: 'Fresh Graduate Sistem Informasi',
   email: 'hadiprasetiyo.dev@gmail.com',
-  phone: '+62 85128030906',
-  location: 'Samarinda, Kalimantan Timur',
+
   github: 'https://github.com/hadiprasetiyo',
+  githubLabel: 'github.com/hadiprasetiyo',
+
   linkedin: 'https://linkedin.com/in/hadiprasetiyo',
+  linkedinLabel: 'linkedin.com/in/hadiprasetiyo',
+
+  instagram: 'https://instagram.com/hadiiprasetiyo',
+  instagramLabel: 'instagram.com/hadiiprasetiyo',
+
+  location: 'Samarinda, Kalimantan Timur',
+  phone: '+62 85128030906',
   description:
     'Full Stack Web Developer yang berfokus pada pengembangan aplikasi web modern dan responsif. Berpengalaman menggunakan Laravel, PHP, dan MySQL serta terbiasa bekerja secara terstruktur dan kolaboratif.',
   shortBio:
