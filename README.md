@@ -46,20 +46,28 @@ This portfolio serves as a central place to present my background as a software 
 ## 📁 Project Structure
 
 ```text
-src/
-├── animations/
-├── components/
-├── constants/
-├── sections/
-├── App.jsx
-└── main.jsx
-
-public/
-├── images/
-└── icons/
-
-api/
-└── contact.js
+.
+├── public/                 # Static assets
+│   ├── cv/                 # Resume/CV documents (PDF)
+│   ├── images/             # Profile pictures, project screenshots, and certificate images
+│   └── favicon.svg         # Site favicon
+├── src/                    # Frontend React source code
+│   ├── animations/         # Framer Motion transition & variant definitions
+│   ├── components/         # Shared UI components (Navbar, ParticleField, SectionWrapper)
+│   ├── constants/          # Site text, project lists, and centralized contact data
+│   ├── sections/           # Individual portfolio page sections (Hero, About, Contact, etc.)
+│   ├── App.jsx             # Root React component managing section rendering
+│   └── main.jsx            # Frontend entry point mounting the React application
+├── .env.example            # Environment variables setup template
+├── .gitignore              # Files and folders excluded from Git control
+├── index.html              # Main HTML document template
+├── LICENSE                 # Project MIT License details
+├── package.json            # Node project configurations, scripts, and dependencies
+├── postcss.config.js       # PostCSS compiler configuration
+├── server.js               # Express backend server serving API endpoints and production static build
+├── tailwind.config.js      # Tailwind CSS framework utility configurations
+├── vercel.json             # Routing and serverless function deployment settings for Vercel
+└── vite.config.js          # Vite compiler and development server proxy options
 ```
 
 ---
