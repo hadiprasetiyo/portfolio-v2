@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { HiMail, HiLocationMarker, HiPaperAirplane, HiCheckCircle } from 'react-icons/hi'
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 import SectionWrapper from '../components/SectionWrapper'
 import { personalInfo } from '../constants'
 import { fadeInUp, fadeInLeft, fadeInRight } from '../animations/variants'
@@ -11,26 +11,38 @@ const contactDetails = [
   {
     icon: HiMail,
     label: 'Email',
-    value: 'hadiprasetiyo.dev@gmail.com',
-    href: 'mailto:hadiprasetiyo.dev@gmail.com',
+    value: personalInfo.email,
+    href: `mailto:${personalInfo.email}`,
     color: 'text-amber-400',
+    hoverColor: 'group-hover:text-amber-300',
     bg: 'bg-amber-500/10',
   },
   {
     icon: FaGithub,
     label: 'GitHub',
-    value: 'github.com/hadiprasetiyo',
+    value: personalInfo.githubLabel,
     href: personalInfo.github,
     color: 'text-slate-300',
+    hoverColor: 'group-hover:text-white',
     bg: 'bg-slate-500/10',
   },
   {
     icon: FaLinkedinIn,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/hadiprasetiyo',
+    value: personalInfo.linkedinLabel,
     href: personalInfo.linkedin,
     color: 'text-blue-400',
+    hoverColor: 'group-hover:text-blue-300',
     bg: 'bg-blue-500/10',
+  },
+  {
+    icon: FaInstagram,
+    label: 'Instagram',
+    value: personalInfo.instagramLabel,
+    href: personalInfo.instagram,
+    color: 'text-pink-400',
+    hoverColor: 'group-hover:text-pink-300',
+    bg: 'bg-pink-500/10',
   },
   {
     icon: HiLocationMarker,
@@ -77,9 +89,9 @@ const isValidEmail = (email) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim().toLowerCase())
 
 const validate = ({ name, email, subject, message }) => {
-  if (!name || name.trim().length < 3)     return 'Nama minimal 3 karakter.'
-  if (!email || !isValidEmail(email))      return 'Format email tidak valid.'
-  if (!subject || !subject.trim())         return 'Subjek wajib diisi.'
+  if (!name || name.trim().length < 3) return 'Nama minimal 3 karakter.'
+  if (!email || !isValidEmail(email)) return 'Format email tidak valid.'
+  if (!subject || !subject.trim()) return 'Subjek wajib diisi.'
   if (!message || message.trim().length < 20) return 'Pesan minimal 20 karakter.'
   return null
 }
@@ -176,7 +188,10 @@ const Contact = () => {
                     </div>
                     <div className="min-w-0">
                       <p className="text-xs text-slate-500 mb-0.5">{item.label}</p>
-                      <p className={`text-sm font-medium truncate ${item.href ? 'group-hover:' + item.color.replace('text-', 'text-') : 'text-slate-300'} transition-colors`}>
+                      <p
+                        className={`text-sm font-medium truncate text-slate-300 transition-colors ${item.href ? item.hoverColor : ''
+                          }`}
+                      >
                         {item.value}
                       </p>
                     </div>
@@ -190,14 +205,6 @@ const Contact = () => {
                   <div key={item.label}>{content}</div>
                 )
               })}
-            </div>
-
-            {/* Availability note */}
-            <div className="glass-card p-4 flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
-              <p className="text-sm text-slate-300">
-                <strong className="text-green-400">Available for Collaboration</strong>
-              </p>
             </div>
           </motion.div>
 
