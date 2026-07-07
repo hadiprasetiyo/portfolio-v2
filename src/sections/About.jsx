@@ -95,7 +95,7 @@ const About = () => {
           <motion.div variants={fadeInRight} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--th-text)', marginBottom: '0.75rem' }}>
-                Fresh Graduate yang Siap Berkontribusi
+                Profesional Teknologi yang Berorientasi pada Solusi
               </h3>
               <p style={{ color: 'var(--th-text-muted)', lineHeight: 1.8 }}>
                 {personalInfo.shortBio}
