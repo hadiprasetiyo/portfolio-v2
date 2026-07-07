@@ -2,37 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────
+   THEME TOKENS
+   Dark = :root (default)
+   Light = html.light
+   ───────────────────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --th-page:        #060D1B;
+  --th-surface:     #0F172A;
+  --th-card:        rgba(30, 41, 59, 0.60);
+  --th-card-solid:  #1E293B;
+  --th-card-deep:   rgba(15, 23, 42, 0.80);
+
+  /* Borders */
+  --th-border:      rgba(51, 65, 85, 0.50);
+  --th-border-md:   rgba(51, 65, 85, 0.40);
+  --th-border-lg:   rgba(51, 65, 85, 0.60);
+
+  /* Text */
+  --th-text:        #f1f5f9;  /* slate-100  */
+  --th-text-2:      #cbd5e1;  /* slate-300  */
+  --th-text-muted:  #94a3b8;  /* slate-400  */
+  --th-text-dim:    #64748b;  /* slate-500  */
+
+  /* Accent (amber) */
+  --th-accent:      #F59E0B;
+  --th-accent-hi:   #FBBF24;
+  --th-accent-lo:   #D97706;
+
+  /* Scrollbar */
+  --th-scroll-track: #1E293B;
+  --th-scroll-thumb: #F59E0B;
+}
+
+html.light {
+  /* Backgrounds */
+  --th-page:        #F8FAFC;
+  --th-surface:     #F1F5F9;
+  --th-card:        #FFFFFF;
+  --th-card-solid:  #FFFFFF;
+  --th-card-deep:   #F8FAFC;
+
+  /* Borders */
+  --th-border:      rgba(203, 213, 225, 0.80);
+  --th-border-md:   rgba(203, 213, 225, 0.60);
+  --th-border-lg:   rgba(203, 213, 225, 0.90);
+
+  /* Text */
+  --th-text:        #0f172a;  /* slate-900  */
+  --th-text-2:      #1e293b;  /* slate-800  */
+  --th-text-muted:  #475569;  /* slate-600  */
+  --th-text-dim:    #64748b;  /* slate-500  */
+
+  /* Accent — slightly darker for light-bg contrast */
+  --th-accent:      #D97706;
+  --th-accent-hi:   #F59E0B;
+  --th-accent-lo:   #B45309;
+
+  /* Scrollbar */
+  --th-scroll-track: #E2E8F0;
+  --th-scroll-thumb: #D97706;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     scrollbar-width: thin;
-    scrollbar-color: #F59E0B #1E293B;
+    scrollbar-color: var(--th-scroll-thumb) var(--th-scroll-track);
   }
 
-  html::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  html::-webkit-scrollbar-track {
-    background: #1E293B;
-  }
-
+  html::-webkit-scrollbar { width: 5px; }
+  html::-webkit-scrollbar-track { background: var(--th-scroll-track); }
   html::-webkit-scrollbar-thumb {
-    background: #F59E0B;
+    background: var(--th-scroll-thumb);
     border-radius: 3px;
   }
 
   body {
-    background-color: #0F172A;
-    color: #f1f5f9;
+    background-color: var(--th-surface);
+    color: var(--th-text);
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
 
   ::selection {
     background: rgba(245, 158, 11, 0.3);
@@ -41,32 +97,33 @@
 }
 
 @layer components {
-  /* Glass card */
+  /* ── Glass card ─────────────────────────────────────────── */
   .glass-card {
-    background: rgba(30, 41, 59, 0.6);
+    background: var(--th-card);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(51, 65, 85, 0.5);
+    border: 1px solid var(--th-border);
     border-radius: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
-  /* Section label */
+  /* ── Section label ──────────────────────────────────────── */
   .section-label {
     font-size: 0.75rem;
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #F59E0B;
+    color: var(--th-accent);
   }
 
-  /* Section title */
+  /* ── Section title ──────────────────────────────────────── */
   .section-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 800;
-    color: white;
+    color: var(--th-text);
   }
 
-  /* Gradient text - amber */
+  /* ── Gradient text — amber ──────────────────────────────── */
   .text-gradient-amber {
     background: linear-gradient(135deg, #FBBF24, #D97706);
     -webkit-background-clip: text;
@@ -74,7 +131,7 @@
     background-clip: text;
   }
 
-  /* Gradient text - blue */
+  /* ── Gradient text — blue ───────────────────────────────── */
   .text-gradient-blue {
     background: linear-gradient(135deg, #60A5FA, #2563EB);
     -webkit-background-clip: text;
@@ -82,15 +139,15 @@
     background-clip: text;
   }
 
-  /* Section divider */
+  /* ── Section divider ────────────────────────────────────── */
   .section-divider {
     width: 3rem;
     height: 3px;
-    background: linear-gradient(90deg, #F59E0B, #D97706);
+    background: linear-gradient(90deg, var(--th-accent), var(--th-accent-lo));
     border-radius: 2px;
   }
 
-  /* Primary button */
+  /* ── Primary button ─────────────────────────────────────── */
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -99,7 +156,7 @@
     border-radius: 0.75rem;
     font-size: 0.875rem;
     font-weight: 600;
-    background: #F59E0B;
+    background: var(--th-accent);
     color: #0F172A;
     border: none;
     cursor: pointer;
@@ -109,12 +166,12 @@
   }
 
   .btn-primary:hover {
-    background: #FBBF24;
+    background: var(--th-accent-hi);
     transform: translateY(-2px);
     box-shadow: 0 0 30px rgba(245, 158, 11, 0.4);
   }
 
-  /* Secondary button */
+  /* ── Secondary button ───────────────────────────────────── */
   .btn-secondary {
     display: inline-flex;
     align-items: center;
@@ -124,8 +181,8 @@
     font-size: 0.875rem;
     font-weight: 600;
     background: transparent;
-    color: #94a3b8;
-    border: 1px solid #334155;
+    color: var(--th-text-muted);
+    border: 1px solid var(--th-border-lg);
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
@@ -133,12 +190,12 @@
 
   .btn-secondary:hover {
     border-color: rgba(245, 158, 11, 0.5);
-    color: #FBBF24;
+    color: var(--th-accent-hi);
     background: rgba(245, 158, 11, 0.05);
     transform: translateY(-2px);
   }
 
-  /* Outline button */
+  /* ── Outline button ─────────────────────────────────────── */
   .btn-outline {
     display: inline-flex;
     align-items: center;
@@ -161,31 +218,204 @@
     transform: translateY(-2px);
   }
 
-  /* Timeline dot */
+  /* ── Timeline dot ───────────────────────────────────────── */
   .timeline-dot {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background: #F59E0B;
-    border: 4px solid #0F172A;
+    background: var(--th-accent);
+    border: 4px solid var(--th-surface);
     box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
     flex-shrink: 0;
   }
 }
 
 @layer utilities {
-  /* Shadow glow amber */
-  .shadow-glow-amber {
-    box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
-  }
+  .shadow-glow-amber { box-shadow: 0 0 30px rgba(245, 158, 11, 0.2); }
+  .shadow-glow-blue  { box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); }
+  .shadow-card       { box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4); }
+}
 
-  /* Shadow glow blue */
-  .shadow-glow-blue {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
-  }
+/* ─────────────────────────────────────────────────────────
+   LIGHT MODE — Global overrides for Tailwind arbitrary values
+   Targets the JIT-generated class names with escaped chars.
+   Using !important because Tailwind utility specificity is equal;
+   the html.light ancestor adds the winning specificity layer.
+   ───────────────────────────────────────────────────────── */
 
-  /* Card shadow */
-  .shadow-card {
-    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
-  }
+/* ── Page / section backgrounds ────────────────────────── */
+html.light .bg-\[\#060D1B\]\/30 { background-color: rgba(248, 250, 252, 0.30) !important; }
+html.light .bg-\[\#060D1B\]    { background-color: #F8FAFC !important; }
+html.light .bg-\[\#0F172A\]\/30 { background-color: rgba(241, 245, 249, 0.30) !important; }
+html.light .bg-\[\#0F172A\]    { background-color: #F1F5F9 !important; }
+html.light .bg-\[\#0F172A\]\/60 { background-color: rgba(241, 245, 249, 0.60) !important; }
+
+/* ── Card / surface backgrounds ────────────────────────── */
+html.light .bg-\[\#1E293B\]\/60 { background-color: rgba(255, 255, 255, 0.90) !important; }
+html.light .bg-\[\#1E293B\]\/80 { background-color: rgba(255, 255, 255, 0.95) !important; }
+html.light .bg-\[\#1E293B\]     { background-color: #FFFFFF !important; }
+html.light .bg-\[\#0F172A\]\/80 { background-color: rgba(241, 245, 249, 0.90) !important; }
+
+/* ── Named navy colors ──────────────────────────────────── */
+html.light .bg-navy-900\/90 { background-color: rgba(248, 250, 252, 0.95) !important; }
+html.light .bg-navy-900     { background-color: #F1F5F9 !important; }
+html.light .bg-navy-800\/95 { background-color: rgba(255, 255, 255, 0.97) !important; }
+html.light .bg-navy-800     { background-color: #FFFFFF !important; }
+
+/* ── Borders ────────────────────────────────────────────── */
+html.light .border-slate-700\/50 { border-color: rgba(203, 213, 225, 0.80) !important; }
+html.light .border-slate-700\/40 { border-color: rgba(203, 213, 225, 0.60) !important; }
+html.light .border-slate-700\/60 { border-color: rgba(203, 213, 225, 0.90) !important; }
+html.light .border-slate-700     { border-color: #CBD5E1 !important; }
+html.light .border-slate-600     { border-color: #94A3B8 !important; }
+html.light .border-slate-500\/20 { border-color: rgba(148, 163, 184, 0.20) !important; }
+
+/* ── Text colors ────────────────────────────────────────── */
+html.light .text-white           { color: #0f172a !important; }
+html.light .text-slate-100       { color: #1e293b !important; }
+html.light .text-slate-200       { color: #334155 !important; }
+html.light .text-slate-300       { color: #475569 !important; }
+html.light .text-slate-400       { color: #64748b !important; }
+/* slate-500 stays mostly the same — readable on both */
+
+/* ── Exceptions: keep white text on colored backgrounds ─── */
+html.light .btn-primary .text-white,
+html.light .text-navy-900 { color: #0f172a !important; }
+
+/* ── Particle / glow backgrounds ────────────────────────── */
+html.light .from-blue-900\/20 { --tw-gradient-from: rgba(219,234,254,0.20) !important; }
+html.light .from-slate-900    { --tw-gradient-from: #F8FAFC !important; }
+html.light .via-navy-900      { --tw-gradient-via: #F1F5F9 !important; }
+html.light .to-navy-950       { --tw-gradient-to: #E2E8F0 !important; }
+
+/* ── Amber accent stays consistent ─────────────────────── */
+/* amber- colors look good on both themes; no override needed */
+
+/* ── Form inputs in light mode ──────────────────────────── */
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #FFFFFF !important;
+  color: #0f172a !important;
+  border-color: rgba(203, 213, 225, 0.80) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* ── Shadows lighter in light mode ─────────────────────── */
+html.light .shadow-card {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+}
+html.light .shadow-glow-amber {
+  box-shadow: 0 0 24px rgba(217, 119, 6, 0.15) !important;
+}
+
+/* ── Backdrop-filter keeps working ─────────────────────── */
+html.light .backdrop-blur-sm,
+html.light .backdrop-blur-md {
+  backdrop-filter: blur(8px);
+}
+
+/* ─────────────────────────────────────────────────────────
+   LIGHT MODE — Additional contrast fixes
+   ───────────────────────────────────────────────────────── */
+
+/* ── Section separators — subtle line between adjacent sections ── */
+html.light section + section {
+  border-top: 1px solid rgba(203, 213, 225, 0.40);
+}
+
+/* ── Glass card — subtle shadow so cards lift from section bg ─── */
+html.light .glass-card {
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.07), 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+/* ── Navy 950 — footer background ──────────────────────── */
+html.light .bg-navy-950\/60 { background-color: #F1F5F9 !important; }
+html.light .bg-navy-950     { background-color: #E2E8F0 !important; }
+
+/* ── Navy 900 variants — badges, buttons, form bg ───────── */
+/* 80% opacity: project card category badge (on image) → frosted white */
+html.light .bg-navy-900\/80 { background-color: rgba(255, 255, 255, 0.88) !important; }
+/* 60% opacity: tech badges, contact form inputs */
+html.light .bg-navy-900\/60 { background-color: rgba(248, 250, 252, 0.95); }
+/* 40% opacity: GitHub action button */
+html.light .bg-navy-900\/40 { background-color: rgba(248, 250, 252, 0.80); }
+
+/* ── Slate-800 borders — footer borders, section dividers ── */
+html.light .border-slate-800\/60 { border-color: rgba(203, 213, 225, 0.65) !important; }
+html.light .border-slate-800     { border-color: #CBD5E1 !important; }
+
+/* ── Slate-700/30 — coming soon button, subtle dividers ── */
+html.light .border-slate-700\/30 { border-color: rgba(203, 213, 225, 0.50) !important; }
+
+/* ── Footer — fix hover:text-white which stays white ─────── */
+/* GitHub icon hover:text-white would be invisible on light bg */
+html.light footer .hover\:text-white:hover { color: var(--th-accent) !important; }
+
+/* ── Project card — content text contrast improvements ────── */
+/* Highlighted list items and description text should be darker */
+html.light .text-slate-400 { color: #475569 !important; } /* override to slate-600 level */
+
+/* ── Coming Soon button — needs readable text on light bg ── */
+html.light .text-slate-600 { color: #334155 !important; } /* slightly darker on light */
+
+/* ─────────────────────────────────────────────────────────
+   LIGHT MODE — Hover state corrections
+   Root cause: !important on base text overrides blocks hover
+   color classes. These explicit !important hover overrides
+   have higher specificity (html.light + .group:hover + class
+   = 0,4,0) that beats base overrides (0,2,0).
+   Dark mode is unaffected — all rules scoped to html.light.
+   ───────────────────────────────────────────────────────── */
+
+/* ── Project / Cert card title: group-hover amber ──────── */
+/* Projects.jsx h3 + Certificates.jsx h3 use text-white + group-hover:text-amber-400 */
+html.light .group:hover .group-hover\:text-amber-400 {
+  color: var(--th-accent-lo) !important;   /* #D97706 — amber-600, visible on white */
+}
+
+/* ── GitHub button: hover:text-amber-400 ────────────────── */
+/* Projects.jsx GitHub button, Footer nav links, ThemeToggle */
+html.light .hover\:text-amber-400:hover {
+  color: var(--th-accent-lo) !important;
+}
+
+/* ── Contact card: Email — group-hover:text-amber-300 ───── */
+/* amber-300 (#FCD34D) is too light on white; use amber-600 */
+html.light .group:hover .group-hover\:text-amber-300 {
+  color: var(--th-accent-lo) !important;
+}
+
+/* ── Contact card: GitHub / Navbar brand — group-hover:text-white ─ */
+/* white on light bg = invisible; use dark-navy instead */
+html.light .group:hover .group-hover\:text-white {
+  color: var(--th-text-2) !important;      /* #1e293b — slate-800 */
+}
+
+/* ── Contact card: LinkedIn — group-hover:text-blue-300 ─── */
+/* blue-300 (#93C5FD) is too light on white; use blue-600 */
+html.light .group:hover .group-hover\:text-blue-300 {
+  color: #2563EB !important;               /* blue-600 */
+}
+
+/* ── Contact card: Instagram — group-hover:text-pink-300 ── */
+/* pink-300 (#F9A8D4) is too light on white; use pink-700 */
+html.light .group:hover .group-hover\:text-pink-300 {
+  color: #BE185D !important;               /* pink-700 */
+}
+/* ── Project Card GitHub Button hover overrides ────────── */
+html.light #projects .glass-card a[href*="github"]:hover {
+  border-color: rgba(217, 119, 6, 0.40) !important;
+  background-color: rgba(217, 119, 6, 0.05) !important;
+  color: var(--th-accent-lo) !important;
+}
+
+/* ── Navbar Menu Links hover in Light Mode ──────────────── */
+html.light nav ul button:not(.text-amber-400):hover,
+html.light #mobile-menu ul button:not(.text-amber-400):hover {
+  color: var(--th-accent-lo) !important;
 }

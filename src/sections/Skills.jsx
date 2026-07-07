@@ -40,11 +40,11 @@ const SkillBadge = ({ skill }) => {
         gap: '0.5rem',
         padding: '0.625rem 1rem',
         borderRadius: '0.75rem',
-        background: 'rgba(30,41,59,0.8)',
-        border: '1px solid rgba(51,65,85,0.6)',
+        background: 'var(--th-card)',
+        border: '1px solid var(--th-border-lg)',
         fontSize: '0.875rem',
         fontWeight: 500,
-        color: '#cbd5e1',
+        color: 'var(--th-text-2)',
         cursor: 'default',
         transition: 'all 0.2s ease',
       }}
@@ -69,7 +69,7 @@ const Skills = () => {
             <span className="text-gradient-amber">Stack</span>
           </h2>
           <div className="section-divider" style={{ margin: '1rem auto 0' }} />
-          <p style={{ color: '#94a3b8', marginTop: '1rem', maxWidth: '36rem', margin: '1rem auto 0', fontSize: '0.875rem' }}>
+          <p style={{ color: 'var(--th-text-muted)', marginTop: '1rem', maxWidth: '36rem', margin: '1rem auto 0', fontSize: '0.875rem' }}>
             Teknologi dan tools yang saya gunakan dalam pengembangan aplikasi web, dari frontend hingga backend.
           </p>
         </motion.div>
@@ -99,10 +99,10 @@ const Skills = () => {
                     background: 'linear-gradient(to bottom, #FBBF24, #D97706)',
                   }}
                 />
-                <h3 style={{ fontWeight: 700, color: 'white', fontSize: '1.125rem' }}>
+                <h3 style={{ fontWeight: 700, color: 'var(--th-text)', fontSize: '1.125rem' }}>
                   {category.label}
                 </h3>
-                <span style={{ color: '#475569', fontSize: '0.8rem', fontFamily: 'monospace' }}>
+                <span style={{ color: 'var(--th-text-dim)', fontSize: '0.8rem', fontFamily: 'monospace' }}>
                   {category.skills.length} tools
                 </span>
               </motion.div>
@@ -120,7 +120,7 @@ const Skills = () => {
         {/* Footer comment */}
         <motion.p
           variants={fadeInUp}
-          style={{ textAlign: 'center', color: '#475569', fontSize: '0.875rem', marginTop: '2rem', fontFamily: 'monospace' }}
+          style={{ textAlign: 'center', color: 'var(--th-text-dim)', fontSize: '0.875rem', marginTop: '2rem', fontFamily: 'monospace' }}
         >
           {'// Terus belajar dan berkembang ✨'}
         </motion.p>

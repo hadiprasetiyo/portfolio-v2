@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { navbarVariant, mobileMenuVariant, staggerItem, staggerContainer } from '../animations/variants'
 import { navLinks } from '../constants'
+import ThemeToggle from './ThemeToggle'
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -132,24 +133,30 @@ const Navbar = () => {
               ))}
             </ul>
 
-            {/* Hire me CTA */}
-            <button
-              onClick={() => scrollTo('contact')}
-              className="hidden md:flex btn-primary text-xs px-4 py-2 gap-1.5"
-            >
-              Hubungi Saya
-            </button>
+            {/* Theme toggle + Hire me CTA */}
+            <div className="hidden md:flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                onClick={() => scrollTo('contact')}
+                className="btn-primary text-xs px-4 py-2 gap-1.5"
+              >
+                Hubungi Saya
+              </button>
+            </div>
 
-            {/* Mobile toggle */}
-            <button
-              id="menu-toggle"
-              onClick={() => setMenuOpen(prev => !prev)}
-              className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition-colors"
-              aria-label="Toggle menu"
-              aria-expanded={menuOpen}
-            >
-              {menuOpen ? <HiX className="w-5 h-5" /> : <HiMenu className="w-5 h-5" />}
-            </button>
+            {/* Mobile: theme toggle + hamburger */}
+            <div className="md:hidden flex items-center gap-1">
+              <ThemeToggle />
+              <button
+                id="menu-toggle"
+                onClick={() => setMenuOpen(prev => !prev)}
+                className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition-colors"
+                aria-label="Toggle menu"
+                aria-expanded={menuOpen}
+              >
+                {menuOpen ? <HiX className="w-5 h-5" /> : <HiMenu className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>

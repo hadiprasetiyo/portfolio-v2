@@ -34,9 +34,9 @@ const ExperienceCard = ({ exp }) => (
       <span
         style={{
           fontSize: '0.7rem',
-          color: '#64748b',
+          color: 'var(--th-text-dim)',
           fontFamily: 'monospace',
-          border: '1px solid rgba(51,65,85,0.6)',
+          border: '1px solid var(--th-border-lg)',
           padding: '0.25rem 0.625rem',
           borderRadius: '9999px',
         }}
@@ -47,7 +47,7 @@ const ExperienceCard = ({ exp }) => (
 
     <h3
       className="group-hover:text-amber-400 transition-colors"
-      style={{ fontWeight: 700, color: 'white', fontSize: '0.95rem', marginBottom: '0.25rem' }}
+      style={{ fontWeight: 700, color: 'var(--th-text)', fontSize: '0.95rem', marginBottom: '0.25rem' }}
     >
       {exp.role}
     </h3>
@@ -57,29 +57,29 @@ const ExperienceCard = ({ exp }) => (
       <p style={{ color: '#60A5FA', fontSize: '0.8rem', fontWeight: 600 }}>{exp.company}</p>
     </div>
 
-    <p style={{ color: '#64748b', fontSize: '0.7rem', fontWeight: 500, marginBottom: '0.2rem' }}>
+    <p style={{ color: 'var(--th-text-dim)', fontSize: '0.7rem', fontWeight: 500, marginBottom: '0.2rem' }}>
       {exp.program}
     </p>
 
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', margin: '0.6rem 0 0.75rem' }}>
-      <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.7rem', color: '#64748b' }}>
+      <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.7rem', color: 'var(--th-text-dim)' }}>
         <HiCalendar style={{ width: 14, height: 14 }} />
         {exp.period}
       </span>
 
-      <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.7rem', color: '#64748b' }}>
+      <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.7rem', color: 'var(--th-text-dim)' }}>
         <HiLocationMarker style={{ width: 14, height: 14 }} />
         {exp.location}
       </span>
     </div>
 
-    <p style={{ color: '#94a3b8', fontSize: '0.8rem', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+    <p style={{ color: 'var(--th-text-muted)', fontSize: '0.8rem', lineHeight: 1.7, marginBottom: '0.75rem' }}>
       {exp.description}
     </p>
 
     <ul style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: '0.75rem' }}>
       {exp.highlights.map((h, i) => (
-        <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 6, fontSize: '0.7rem', color: '#94a3b8' }}>
+        <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 6, fontSize: '0.7rem', color: 'var(--th-text-muted)' }}>
           <HiChevronRight style={{ width: 14, height: 14, color: '#F59E0B', marginTop: 2, flexShrink: 0 }} />
           {h}
         </li>
@@ -102,9 +102,9 @@ const ExperienceCard = ({ exp }) => (
             fontSize: '0.65rem',
             padding: '0.2rem 0.55rem',
             borderRadius: 6,
-            background: 'rgba(15,23,42,0.6)',
-            border: '1px solid rgba(51,65,85,0.6)',
-            color: '#94a3b8',
+            background: 'var(--th-card-deep)',
+            border: '1px solid var(--th-border-lg)',
+            color: 'var(--th-text-muted)',
             fontFamily: 'monospace',
           }}
         >
@@ -322,7 +322,7 @@ const Experience = () => {
   }, [])
 
   return (
-    <SectionWrapper id="experience" style={{ background: 'rgba(6,13,27,0.4)' }}>
+    <SectionWrapper id="experience" style={{ background: 'var(--th-card)' }}>
       <div style={{ maxWidth: '64rem', margin: '0 auto' }}>
         <motion.div variants={fadeInUp} style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <p className="section-label" style={{ marginBottom: '0.75rem' }}>Experience</p>
@@ -335,7 +335,7 @@ const Experience = () => {
 
           <p
             style={{
-              color: '#94a3b8',
+              color: 'var(--th-text-muted)',
               maxWidth: '36rem',
               margin: '1rem auto 0',
               fontSize: '0.875rem',

@@ -50,14 +50,14 @@ const CertificateLightbox = ({ cert, onClose }) => {
           style={{
             position: 'absolute', top: 20, right: 20, zIndex: 10,
             width: 36, height: 36, borderRadius: '50%',
-            background: 'rgba(15,23,42,0.8)',
-            border: '1px solid rgba(51,65,85,0.6)',
+            background: 'var(--th-card-deep)',
+            border: '1px solid var(--th-border-lg)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: '#94a3b8', cursor: 'pointer',
+            color: 'var(--th-text-muted)', cursor: 'pointer',
             transition: 'all 0.2s',
           }}
           onMouseEnter={(e) => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(245,158,11,0.4)' }}
-          onMouseLeave={(e) => { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.borderColor = 'rgba(51,65,85,0.6)' }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--th-text-muted)'; e.currentTarget.style.borderColor = 'var(--th-border-lg)' }}
         >
           <HiX style={{ width: 18, height: 18, pointerEvents: 'none' }} />
         </button>
@@ -89,7 +89,7 @@ const CertificateLightbox = ({ cert, onClose }) => {
           transition={{ delay: 0.15 }}
           style={{
             marginTop: '1rem',
-            color: '#94a3b8',
+            color: 'var(--th-text-muted)',
             fontSize: '0.8rem',
             fontWeight: 500,
             textAlign: 'center',
@@ -161,10 +161,10 @@ const CertificateCard = ({ cert, onView }) => {
               style={{
                 width: 28, height: 28,
                 borderRadius: '0.5rem',
-                background: 'rgba(15,23,42,0.6)',
-                border: '1px solid rgba(51,65,85,0.6)',
+                background: 'var(--th-card-deep)',
+                border: '1px solid var(--th-border-lg)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: '#64748b',
+                color: 'var(--th-text-dim)',
                 cursor: 'pointer',
                 transition: 'all 0.2s',
               }}
@@ -174,9 +174,9 @@ const CertificateCard = ({ cert, onView }) => {
                 e.currentTarget.style.background = 'rgba(245,158,11,0.06)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = '#64748b'
-                e.currentTarget.style.borderColor = 'rgba(51,65,85,0.6)'
-                e.currentTarget.style.background = 'rgba(15,23,42,0.6)'
+                e.currentTarget.style.color = 'var(--th-text-dim)'
+                e.currentTarget.style.borderColor = 'var(--th-border-lg)'
+                e.currentTarget.style.background = 'var(--th-card-deep)'
               }}
             >
               <HiEye style={{ width: 14, height: 14, pointerEvents: 'none' }} />
