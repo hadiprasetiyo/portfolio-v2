@@ -11,13 +11,13 @@ const StatCard = ({ value, label }) => (
     style={{ padding: '1.25rem', textAlign: 'center' }}
   >
     <p style={{ fontSize: '1.5rem', fontWeight: 900, background: 'linear-gradient(135deg, #FBBF24, #D97706)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{value}</p>
-    <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.25rem', fontWeight: 500 }}>{label}</p>
+    <p style={{ fontSize: '0.75rem', color: 'var(--th-text-muted)', marginTop: '0.25rem', fontWeight: 500 }}>{label}</p>
   </motion.div>
 )
 
 const About = () => {
   return (
-    <SectionWrapper id="about" style={{ background: 'rgba(6, 13, 27, 0.4)' }}>
+    <SectionWrapper id="about" style={{ background: 'var(--th-card)' }}>
       <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
 
         {/* Header */}
@@ -94,10 +94,10 @@ const About = () => {
           {/* Right — Content */}
           <motion.div variants={fadeInRight} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'white', marginBottom: '0.75rem' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--th-text)', marginBottom: '0.75rem' }}>
                 Fresh Graduate yang Siap Berkontribusi
               </h3>
-              <p style={{ color: '#94a3b8', lineHeight: 1.8 }}>
+              <p style={{ color: 'var(--th-text-muted)', lineHeight: 1.8 }}>
                 {personalInfo.shortBio}
               </p>
             </div>
@@ -106,12 +106,12 @@ const About = () => {
             <div className="glass-card" style={{ padding: '1.25rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
                 <HiAcademicCap style={{ width: 20, height: 20, color: '#F59E0B' }} />
-                <h4 style={{ fontWeight: 600, color: 'white', fontSize: '0.875rem' }}>Pendidikan</h4>
+                <h4 style={{ fontWeight: 600, color: 'var(--th-text)', fontSize: '0.875rem' }}>Pendidikan</h4>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', marginBottom: '0.5rem' }}>
                 <div>
-                  <p style={{ fontWeight: 700, color: 'white', fontSize: '0.95rem' }}>{education.university}</p>
-                  <p style={{ color: '#94a3b8', fontSize: '0.8rem' }}>{education.faculty}</p>
+                  <p style={{ fontWeight: 700, color: 'var(--th-text)', fontSize: '0.95rem' }}>{education.university}</p>
+                  <p style={{ color: 'var(--th-text-muted)', fontSize: '0.8rem' }}>{education.faculty}</p>
                   <p style={{ color: '#60A5FA', fontSize: '0.8rem', fontWeight: 500 }}>{education.major} • {education.degree}</p>
                 </div>
                 <div style={{ textAlign: 'right', flexShrink: 0 }}>
@@ -119,7 +119,7 @@ const About = () => {
                   <p style={{ color: '#475569', fontSize: '0.75rem' }}>{education.year}</p>
                 </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', color: '#64748b', fontSize: '0.75rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', color: 'var(--th-text-dim)', fontSize: '0.75rem' }}>
                 <HiLocationMarker style={{ width: 14, height: 14 }} />
                 {education.location}
               </div>
@@ -129,9 +129,9 @@ const About = () => {
             <div className="glass-card" style={{ padding: '1.25rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
                 <HiSparkles style={{ width: 20, height: 20, color: '#60A5FA' }} />
-                <h4 style={{ fontWeight: 600, color: 'white', fontSize: '0.875rem' }}>Tujuan Karier</h4>
+                <h4 style={{ fontWeight: 600, color: 'var(--th-text)', fontSize: '0.875rem' }}>Tujuan Karier</h4>
               </div>
-              <p style={{ color: '#94a3b8', fontSize: '0.875rem', lineHeight: 1.75 }}>
+              <p style={{ color: 'var(--th-text-muted)', fontSize: '0.875rem', lineHeight: 1.75 }}>
                 {personalInfo.careerGoal}
               </p>
             </div>
@@ -145,8 +145,8 @@ const About = () => {
                 { label: 'Fokus', value: 'Web Development' },
               ].map(item => (
                 <div key={item.label} className="glass-card" style={{ padding: '0.75rem 1rem' }}>
-                  <p style={{ color: '#475569', fontSize: '0.7rem', marginBottom: '0.2rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{item.label}</p>
-                  <p style={{ color: '#e2e8f0', fontSize: '0.8rem', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.value}</p>
+                  <p style={{ color: 'var(--th-text-dim)', fontSize: '0.7rem', marginBottom: '0.2rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{item.label}</p>
+                  <p style={{ color: 'var(--th-text-2)', fontSize: '0.8rem', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.value}</p>
                 </div>
               ))}
             </div>

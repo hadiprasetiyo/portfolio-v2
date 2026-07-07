@@ -60,7 +60,7 @@ const Hero = () => {
       id="hero"
       ref={ref}
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
-      style={{ background: '#0F172A' }}
+      style={{ background: 'var(--th-surface)' }}
     >
       {/* ── Background Layer (parallax) ── */}
       <motion.div
@@ -103,7 +103,7 @@ const Hero = () => {
         <div
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, #0F172A 100%)',
+            background: 'radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, var(--th-surface) 100%)',
           }}
         />
       </motion.div>
@@ -129,7 +129,7 @@ const Hero = () => {
           <motion.p
             variants={staggerItem}
             className="text-base md:text-lg"
-            style={{ color: '#94a3b8', fontFamily: 'monospace' }}
+            style={{ color: 'var(--th-text-muted)', fontFamily: 'monospace' }}
           >
             Halo, saya 👋
           </motion.p>
@@ -140,7 +140,7 @@ const Hero = () => {
             className="font-black leading-none tracking-tight"
             style={{ fontSize: 'clamp(3rem, 10vw, 6rem)' }}
           >
-            <span style={{ color: 'white' }}>HADI </span>
+            <span style={{ color: 'var(--th-text)' }}>HADI </span>
             <span
               style={{
                 background: 'linear-gradient(135deg, #FBBF24, #F59E0B, #D97706)',
@@ -159,7 +159,7 @@ const Hero = () => {
             className="flex items-center gap-1 text-lg md:text-2xl h-10"
             style={{ fontFamily: 'monospace', color: '#60A5FA' }}
           >
-            <span style={{ color: '#64748b', marginRight: '0.5rem' }}>{'>'}</span>
+            <span style={{ color: 'var(--th-text-dim)', marginRight: '0.5rem' }}>{'>'}</span>
             <span>{typedText}</span>
             <span
               style={{
@@ -177,7 +177,7 @@ const Hero = () => {
           <motion.p
             variants={staggerItem}
             className="max-w-2xl text-base md:text-lg leading-relaxed"
-            style={{ color: '#94a3b8' }}
+            style={{ color: 'var(--th-text-muted)' }}
           >
             {personalInfo.description}
           </motion.p>
@@ -213,22 +213,23 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm transition-colors"
-              style={{ color: '#64748b' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#f1f5f9'}
-              onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
+              style={{ color: 'var(--th-text-dim)' }}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--th-text)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'var(--th-text-dim)'}
             >
               <FaGithub className="w-4 h-4" />
               GitHub
             </a>
-            <span style={{ width: 1, height: 16, background: '#334155' }} />
+            <span style={{ width: 1, height: 16, background: 'var(--th-border)' }} />
+
             <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm transition-colors"
-              style={{ color: '#64748b' }}
+              style={{ color: 'var(--th-text-dim)' }}
               onMouseEnter={e => e.currentTarget.style.color = '#60A5FA'}
-              onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
+              onMouseLeave={e => e.currentTarget.style.color = 'var(--th-text-dim)'}
             >
               <FaLinkedinIn className="w-4 h-4" />
               LinkedIn
@@ -244,13 +245,13 @@ const Hero = () => {
         transition={{ delay: 2, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span style={{ color: '#475569', fontSize: 11, fontFamily: 'monospace', letterSpacing: '0.2em' }}>
+        <span style={{ color: 'var(--th-text-muted)', fontSize: 11, fontFamily: 'monospace', letterSpacing: '0.2em' }}>
           SCROLL
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ width: 1, height: 32, background: 'linear-gradient(to bottom, #475569, transparent)' }}
+          style={{ width: 1, height: 32, background: 'linear-gradient(to bottom, var(--th-text-muted), transparent)' }}
         />
       </motion.div>
 
