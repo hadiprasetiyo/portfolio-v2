@@ -12,6 +12,12 @@ This portfolio serves as a central place to present my background as a software 
 
 ## 🚀 Features
 
+- **Theme Support**:
+  - 🌙 Dark Mode (default) dan ☀️ Light Mode.
+  - 🔄 Theme Toggle untuk berpindah tema secara langsung.
+  - 🎨 Tampilan yang konsisten dan nyaman di seluruh section.
+  - 💾 Persistensi preferensi tema menggunakan `localStorage`.
+  - 📱 Desain yang sepenuhnya responsif pada kedua mode tema.
 - Responsive design for desktop, tablet, and mobile devices
 - Smooth animations powered by Framer Motion
 - Interactive experience timeline
