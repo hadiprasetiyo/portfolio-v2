@@ -22,9 +22,9 @@ export const personalInfo = {
   description:
     'Full Stack Web Developer yang berfokus pada pengembangan aplikasi web modern dan responsif. Berpengalaman menggunakan Laravel, PHP, dan MySQL serta terbiasa bekerja secara terstruktur dan kolaboratif.',
   shortBio:
-    'Fresh Graduate Sistem Informasi Universitas Mulawarman dengan IPK 3.82. Memiliki minat yang kuat dalam pengembangan web modern dan pengalaman membangun aplikasi dari tahap perancangan hingga implementasi. Berkomitmen untuk terus belajar, beradaptasi dengan teknologi baru, dan menciptakan solusi digital.',
+    'Full Stack Web Developer yang berfokus pada pengembangan aplikasi web modern, responsif, dan scalable. Berpengalaman membangun solusi digital dari tahap perancangan hingga implementasi dengan mengutamakan kualitas kode, pengalaman pengguna, dan kebutuhan bisnis. Memiliki semangat belajar yang tinggi serta mampu beradaptasi dengan teknologi dan tantangan baru.',
   careerGoal:
-    'Mengembangkan karier sebagai Full Stack Developer di lingkungan yang mendorong inovasi, kolaborasi, dan pertumbuhan profesional. Berkontribusi dalam membangun produk digital yang berkualitas, scalable, dan mampu memberikan dampak positif bagi pengguna maupun bisnis.',
+    'Mengembangkan karier di bidang teknologi dan pengembangan perangkat lunak dengan berkontribusi pada pembangunan solusi digital yang inovatif, berkualitas, dan berdampak. Berkomitmen untuk terus belajar, beradaptasi dengan perkembangan teknologi, serta memberikan nilai bagi pengguna dan organisasi melalui karya yang profesional dan berkelanjutan.',
 }
 
 export const education = {
