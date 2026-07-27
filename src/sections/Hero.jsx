@@ -192,7 +192,7 @@ const Hero = () => {
               <HiArrowDown className="w-4 h-4" />
             </button>
             <a
-              href="/cv/CV-Hadi-Prasetiyo.pdf"
+              href="/cv/cv-hadiprasetiyo.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
